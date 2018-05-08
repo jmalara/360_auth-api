@@ -4,7 +4,6 @@
     "description": "",
     "main": "auth.js",
     "dependencies": {
-        "request": "^2.85.0",
         "uuid": "3.2.1"
     },
     "scripts": {
