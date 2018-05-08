@@ -19,11 +19,28 @@ service: auth-api
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
+  stage: dev
+  region: us-west-2
 
-# you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
+   
+functions:
+  genToken:
+    handler: auth.genToken
+    events:
+      - http:
+          path: genToken
+          method: get
+          cors:
+            origin: '*' # <-- Specify allowed origin
+            headers: # <-- Specify allowed headers
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+            allowCredentials: false
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -53,10 +70,6 @@ provider:
 #  exclude:
 #    - exclude-me.js
 #    - exclude-me-dir/**
-
-functions:
-  hello:
-    handler: handler.hello
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
