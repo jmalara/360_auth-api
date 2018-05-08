@@ -4,7 +4,8 @@
     "description": "",
     "main": "auth.js",
     "dependencies": {
-        "uuid": "^3.2.1",
+        "request": "^2.85.0",
+        "uuid": "3.2.1"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +19,8 @@
     "bugs": {
         "url": "https://github.com/jmalara/auth-api/issues"
     },
-    "homepage": "https://github.com/jmalara/auth-api#readme"
+    "homepage": "https://github.com/jmalara/auth-api#readme",
+    "devDependencies": {
+        "serverless-plugin-simulate": "0.0.17"
+    }
 }

@@ -1,10 +1,14 @@
 'use strict';
 
-module.exports.hello = (event, context, callback) => {
+module.exports.genToken = (event, context, callback) => {
+    const uuidv4 = require('uuid/v4');
+    let sUid = uuidv4(); // ⇨ '416ac246-e7ac-49ff-93b4-f7e94d997e6b'
+
     const response = {
         statusCode: 200,
+
         body: JSON.stringify({
-            message: 'Go Serverless v1.0! Your function executed successfully!',
+            message: sUid,
             input: event,
         }),
     };
